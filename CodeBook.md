@@ -3,17 +3,15 @@ title: "CodeBook.md"
 output: html_document
 ---
 
+# Indexes (class labels) and names of the activities measured
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+* 1 WALKING
+* 2 WALKING_UPSTAIRS
+* 3 WALKING_DOWNSTAIRS
+* 4 SITTING
+* 5 STANDING
+* 6 LAYING
 ```
-
-# Indexes (class labels) and names of the activities measured:
-* `1 WALKING`
-* `2 WALKING_UPSTAIRS`
-* `3 WALKING_DOWNSTAIRS`
-* `4 SITTING`
-* `5 STANDING`
-* `6 LAYING`
 
 # Feature selection
  
