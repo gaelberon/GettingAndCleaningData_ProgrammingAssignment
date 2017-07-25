@@ -5,13 +5,13 @@ output: html_document
 
 # Repository GettingAndCleaningData_ProgrammingAssignment
 
-## The repo contains
+## This repo contains
 
-> `UCI HAR Dataset (directory):` Input files corresponding to the data collected from the accelerometers from the Samsung Galaxy S smartphone.
-> `run_analysis.R:` script file to answer the programming assignment problematic
-> `README.md:` explains the analysis files is clear and understandable
-> `CodeBook.md:` update of the available codebooks with the data to indicate all the variables and summaries calculated, along with units, and any other relevant information
-> `tidydataset_means.txt:` output file that corresponds to the 5th step of the programming assignment
+* `UCI HAR Dataset (directory):` Input files corresponding to the data collected from the accelerometers from the Samsung Galaxy S smartphone.
+`run_analysis.R:` script file to answer the programming assignment problematic
+* `README.md:` explains the analysis files is clear and understandable
+* `CodeBook.md:` update of the available codebooks with the data to indicate all the variables and summaries calculated, along with units, and any other relevant information
+* `tidydataset_means.txt:` output file that corresponds to the 5th step of the programming assignment
 
 ## The R script 'run_analysis.R' does the following
 
