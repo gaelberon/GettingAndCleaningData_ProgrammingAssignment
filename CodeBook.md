@@ -158,30 +158,30 @@ Files containting other measurements (acceleration, body acceleration, velocity)
 5. From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject
 
 ### The solution proposed here does the following sub-tasks:
-**1. Merge the training and the test sets into data frame 'tidydata'**
+**1. Merge the training and the test sets into data frame 'tidydata'**  
   + Load and merge subjects for training and test sets into data frame 'subject'  
-    NB: we add a column to keep the information of 'training' and 'test'
+    NB: a column is added to keep the information of 'training' and 'test'
   + Load and merge activities labels for training and test sets into data frame 'activity'
-  + Load and merge data for training and test sets into data frame 'mdata'
-**2. Extract only the measurements on the mean and standard deviation for each measurement**
+  + Load and merge data for training and test sets into data frame 'mdata'  
+**2. Extract only the measurements on the mean and standard deviation for each measurement**  
   + Read all available features from file 'features.txt'
   + Extract variables names for 'mean' and 'standard deviation' from available features from data frame 'av_features' into 'mean_and_std_features'
-  + Subset data frame with data of measurements 'mdata' with only 'mean' and 'standard deviation' features
-**3. Use descriptive activity names to name the activities in the data set**
+  + Subset data frame with data of measurements 'mdata' with only 'mean' and 'standard deviation' features  
+**3. Use descriptive activity names to name the activities in the data set**  
   + Read activities labels from file 'activity_label.txt'
-  + Replace activities codes with expected labels in data frame 'activity'
-**4. Appropriately label the data set with descriptive variable names**
+  + Replace activities codes with expected labels in data frame 'activity'  
+**4. Appropriately label the data set with descriptive variable names**  
   + Update the names of the 2 columns of data frame 'subject'
   + Update the name of the single column of data frame 'activity'
   + Update column names of data frame 'mdata' with labels from the file 'features.txt' loaded into data frame 'av_features'
-  + Merge the 3 datasets above into a final one containing expected data:
-             - observations: all recorded data for the 21 training and 9 test subjects regarding the 6 activities
-             - variables: subject, category (TRAINING or TEST), activity names and all means and standard deviations
-**5. From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject**
+  + Merge the 3 datasets above into a final one containing expected data:  
+    + observations: all recorded data for the 21 training and 9 test subjects regarding the 6 activities  
+    + variables: subject, category (TRAINING or TEST), activity names and all means and standard deviations  
+**5. From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject**  
   + Compute the means on data frame 'tidydata' by subject, category and activity, using the 'ddply' method from package 'plyr'
   + Upload the tidy data set into the file 'tidydataset.txt'
   + Upload the tidy data set with means into the file 'tidydataset_means.txt'
-  + Return final tidy data frame 'tidydata'
+  + Return final tidy data frame 'tidydata'  
 
 ## Output files
 
