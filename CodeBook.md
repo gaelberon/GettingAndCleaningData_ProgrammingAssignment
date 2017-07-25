@@ -3,57 +3,56 @@ title: "CodeBook.md"
 output: html_document
 ---
 
-# Indexes (class labels) and names of the activities measured
+# CodeBook
 
-Index  | Label
------- | -------------------
-1      | WALKING
-2      | WALKING_UPSTAIRS
-3      | WALKING_DOWNSTAIRS
-4      | SITTING
-5      | STANDING
-6      | LAYING
+```{r setup, include=FALSE}
+This is the CodeBook for tidy data set obtained by running the script
+'run_analysis.R'. It indicates all the variables and summaries calculated,
+along with units, and any other relevant information
+```
 
-# Feature selection
+# About the original data
+
+## Feature selection
  
-The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ ('t' stands for 'time'). These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise.
+> The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ ('t' stands for 'time'). These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise.
+> 
+> These signals were used to estimate variables of the feature vector for each pattern: '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+> 
+> For each record it is provided:
+> 
+> * Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+> * Triaxial Angular velocity from the gyroscope. 
+> * A 561-feature vector with time and frequency domain variables. 
+> * Its activity label. 
+> * An identifier of the subject who carried out the experiment.
+> 
+> Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz.
+>   + `tBodyAcc-XYZ`
+>   + `tGravityAcc-XYZ`
+>   + `tBodyGyro-XYZ`
+> 
+> Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals:
+>   + `tBodyAccJerk-XYZ`
+>   + `tBodyGyroJerk-XYZ`
+> 
+> Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm:
+>   + `tBodyAccMag`
+>   + `tGravityAccMag`
+>   + `tBodyAccJerkMag`
+>   + `tBodyGyroMag`
+>   + `tBodyGyroJerkMag`
+> 
+> Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing (Note the 'f' to indicate frequency domain signals):
+>   + `fBodyAcc-XYZ`
+>   + `fBodyAccJerk-XYZ`
+>   + `fBodyGyro-XYZ`
+>   + `fBodyAccMag`
+>   + `fBodyAccJerkMag`
+>   + `fBodyGyroMag`
+>   + `fBodyGyroJerkMag`
 
-These signals were used to estimate variables of the feature vector for each pattern: '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
-
-For each record it is provided:
-
-* Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
-* Triaxial Angular velocity from the gyroscope. 
-* A 561-feature vector with time and frequency domain variables. 
-* Its activity label. 
-* An identifier of the subject who carried out the experiment.
-
-Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz.
-  + `tBodyAcc-XYZ`
-  + `tGravityAcc-XYZ`
-  + `tBodyGyro-XYZ`
-
-Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals:
-  + `tBodyAccJerk-XYZ`
-  + `tBodyGyroJerk-XYZ`
-
-Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm:
-  + `tBodyAccMag`
-  + `tGravityAccMag`
-  + `tBodyAccJerkMag`
-  + `tBodyGyroMag`
-  + `tBodyGyroJerkMag`
-
-Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing (Note the 'f' to indicate frequency domain signals):
-  + `fBodyAcc-XYZ`
-  + `fBodyAccJerk-XYZ`
-  + `fBodyGyro-XYZ`
-  + `fBodyAccMag`
-  + `fBodyAccJerkMag`
-  + `fBodyGyroMag`
-  + `fBodyGyroJerkMag`
-
-# The set of variables that were estimated from these signals are: 
+## The set of variables that were estimated from these signals are: 
 
   + `mean(): Mean value`
   + `std(): Standard deviation`
@@ -73,7 +72,7 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
   + `bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.`
   + `angle(): Angle between to vectors`
 
-# Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
+## Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
 
   + `gravityMean`
   + `tBodyAccMean`
@@ -81,9 +80,9 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
   + `tBodyGyroMean`
   + `tBodyGyroJerkMean`
 
-# The complete list of variables of each feature vector is available in 'features.txt'
+## Variables
  
-Out of the whole scope of variables, we will only consider the measurements on the mean and standard deviation for each measurement
+The complete list of variables of each feature vector is available in 'features.txt'. Out of the whole scope of variables, we will only consider the measurements on the mean and standard deviation for each measurement
 
   + `1 tBodyAcc-mean()-X`
   + `2 tBodyAcc-mean()-Y`
@@ -168,3 +167,15 @@ Out of the whole scope of variables, we will only consider the measurements on t
   + `542 fBodyBodyGyroJerkMag-mean()`
   + `543 fBodyBodyGyroJerkMag-std()`
   + `...`
+
+## Indexes (class labels) and names of the activities measured
+
+Index  | Label
+------ | -------------------
+1      | WALKING
+2      | WALKING_UPSTAIRS
+3      | WALKING_DOWNSTAIRS
+4      | SITTING
+5      | STANDING
+6      | LAYING
+
