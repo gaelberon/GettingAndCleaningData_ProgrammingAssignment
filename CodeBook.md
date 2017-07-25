@@ -156,17 +156,17 @@ File containing the tidy data for both training and test data sets. The variable
   + `category`: either `TRAINING` or `TEST`
   + `activity`: indexes are retrieved from files `y_test.txt` and `y_train.txt` and replaced while processing tidy data with labels from the file `activity_labels.txt`
   + `tBodyAcc-mean()-X` to `fBodyBodyGyroJerkMag-std()`: all measurements from file 'X_test' and 'X_train'. Those files contain every from the 561 available features (see file `features.txt`), so we need to filter what we consider to be useful for our analysis, ie: data regarding means and standard deviations for each measurement.  
-> Example:
->  
->  subject  | category | activity           | tBodyAcc-mean()-X | tBodyAcc-mean()-Y | ... | fBodyBodyGyroJerkMag-std()
->  -------- | -------- | ------------------ | ----------------- | ----------------- | --- | --------------------------
->  1        | TRAINING | LAYING             | num               | num               | ... | num                       
->  2        | TEST     | SITTING            | num               | num               | ... | num                       
->  3        | TRAINING | STANDING           | num               | num               | ... | num                       
->  ...      | ...      | ...                | ...               | ...               | ... | ...                       
->  28       | TRAINING | WALKING            | num               | num               | ... | num                       
->  29       | TRAINING | WALKING_DOWNSTAIRS | num               | num               | ... | num                       
->  30       | TRAINING | WALKING_DOWNSTAIRS | num               | num               | ... | num                       
+Example:
+
+subject  | category | activity           | tBodyAcc-mean()-X | tBodyAcc-mean()-Y | ... | fBodyBodyGyroJerkMag-std()
+-------- | -------- | ------------------ | ----------------- | ----------------- | --- | --------------------------
+1        | TRAINING | LAYING             | num               | num               | ... | num                       
+2        | TEST     | SITTING            | num               | num               | ... | num                       
+3        | TRAINING | STANDING           | num               | num               | ... | num                       
+...      | ...      | ...                | ...               | ...               | ... | ...                       
+28       | TRAINING | WALKING            | num               | num               | ... | num                       
+29       | TRAINING | WALKING_DOWNSTAIRS | num               | num               | ... | num                       
+30       | TRAINING | WALKING_DOWNSTAIRS | num               | num               | ... | num                       
 
 * `tidydataset_means.txt`  
 This file contains the same variables as per the file 'tidydataset.txt' except that data of each variable is averaged for each activity and each subject
