@@ -19,7 +19,7 @@ relevant information
 > 
 > Here are the data for the project:
 > 
-> [Human Activity Recognition Using Smartphones Data Set](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
+> [UCI HAR Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
 ## Data Set Information (from link above)
 
@@ -27,7 +27,7 @@ relevant information
 > 
 > The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 > 
-> Check the [README.md](README.md) file for further details about this dataset. 
+> Check the [README.txt](README.txt) file for further details about this dataset. 
 > 
 > A video of the experiment including an example of the 6 recorded activities with one of the participants can be seen in the following link: [Web Link]
 > 
@@ -37,7 +37,8 @@ relevant information
 
 ## Input files
 
-* 'activity_labels.txt': Indexes (class labels) and names of the activities measured
+* `activity_labels.txt`  
+This file contains the indexes (class labels) and names of the activities measured
 
 Index  | Label
 ------ | -------------------
@@ -48,8 +49,8 @@ Index  | Label
 5      | STANDING
 6      | LAYING
 
-* 'features.txt': Variables
-Out of the whole scope of variables (x 561) contained in the file 'features.txt', we will consider only the measurements on the mean and standard deviation for each measurement (x 66)
+* `features.txt`  
+This file contains the whole scope of variables available (x 561). Out of those, we will consider for building our tidy data only the measurements on the mean and standard deviation for each measurement (x 66)
 
   + `1 tBodyAcc-mean()-X`
   + `2 tBodyAcc-mean()-Y`
@@ -135,24 +136,37 @@ Out of the whole scope of variables (x 561) contained in the file 'features.txt'
   + `543 fBodyBodyGyroJerkMag-std()`
   + `...`
 
-* Subjects taking part of the experiment
+* `UCI HAR Dataset/test/subject_test.txt` and `UCI HAR Dataset/train/subject_train.txt`  
+Both files contain indexes from `1 to 30` corresponding to the subjects (volunteers) being part of the experiment
 
-  + test/subject_test.txt
-  + train/subject_train.txt
+* `UCI HAR Dataset/test/y_test.txt` and `UCI HAR Dataset/train/y_train.txt`  
+Both files contain indexes from `1 to 6` corresponding to the activity performed during the experiment
 
-* Subjects being part of the experiment
+* `UCI HAR Dataset/test/X_test.txt` and `UCI HAR Dataset/train/X_train.txt`  
+Both files contain all measurements (for all features described above) performed during the experiment
 
-  + test/subject_test.txt
-  + train/subject_train.txt
+* In directories: `UCI HAR Dataset/test/Inertial Signals/` and `UCI HAR Dataset/train/Inertial Signals/`, we find the files: `body_acc_x_[...].txt`, `body_acc_y_[...].txt`, `body_acc_z_[...].txt`, `body_gyro_x_[...].txt`, `body_gyro_y_[...].txt`, `body_gyro_z_[...].txt`, `total_acc_x_[...].txt`, `total_acc_y_[...].txt`, `total_acc_z_[...].txt`  
+Files containting other measurements not to be used in our analysis
 
-  File name               | Content
-------------------------- | ------------------------------------------------------------
-test/subject_test.txt     | Both files contain indexes from `1 to 30` corresponding to the
-------------------------- | volunteer being part of the experiment
-train/subject_train.txt   | 
+## Output files
 
-* Subjects taking part of the experiment
+* `tidydataset.txt`  
+File containing the tidy data for both training and test data sets. The variables retrieved from input files are as follows:
+  + `subject`: from files `subject_test.txt` and `subject_train.txt`
+  + `category`: either `TRAINING` or `TEST`
+  + `activity`: indexes are retrieved from files `y_test.txt` and `y_train.txt` and replaced while processing tidy data with labels from the file `activity_labels.txt`
+  + `tBodyAcc-mean()-X` to `fBodyBodyGyroJerkMag-std()`: all measurements from file 'X_test' and 'X_train'. Those files contain every from the 561 available features (see file `features.txt`), so we need to filter what we consider to be useful for our analysis, ie: data regarding means and standard deviations for each measurement.  
+> Example:
+>  
+>  subject  | category | activity           | tBodyAcc-mean()-X | tBodyAcc-mean()-Y | ... | fBodyBodyGyroJerkMag-std()
+>  -------- | -------- | ------------------ | ----------------- | ----------------- | --- | --------------------------
+>  1        | TRAINING | LAYING             | num               | num               | ... | num                       
+>  2        | TEST     | SITTING            | num               | num               | ... | num                       
+>  3        | TRAINING | STANDING           | num               | num               | ... | num                       
+>  ...      | ...      | ...                | ...               | ...               | ... | ...                       
+>  28       | TRAINING | WALKING            | num               | num               | ... | num                       
+>  29       | TRAINING | WALKING_DOWNSTAIRS | num               | num               | ... | num                       
+>  30       | TRAINING | WALKING_DOWNSTAIRS | num               | num               | ... | num                       
 
-  + test/subject_test.txt
-  + train/subject_train.txt
-
+* `tidydataset_means.txt`  
+This file contains the same variables as per the file 'tidydataset.txt' except that data of each variable is averaged for each activity and each subject
