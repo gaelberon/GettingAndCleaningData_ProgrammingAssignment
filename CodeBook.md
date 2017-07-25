@@ -6,12 +6,18 @@ output: html_document
 # CodeBook
 
 ```{r setup, include=FALSE}
-This is the CodeBook for tidy data set obtained by running the script
-'run_analysis.R'. It indicates all the variables and summaries calculated,
-along with units, and any other relevant information
+This is the CodeBook for tidy data set obtained by running the script 'run_analysis.R'. It indicates all the variables and summaries calculated, along with units, and any other relevant information
 ```
 
 # About the original data
+
+> Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors.
+> 
+> [Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+> 
+> Here are the data for the project:
+> 
+> [Human Activity Recognition Using Smartphones Data Set](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
 ## Feature selection
  
