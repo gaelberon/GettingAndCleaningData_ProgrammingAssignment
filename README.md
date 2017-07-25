@@ -11,6 +11,7 @@ output: html_document
 `run_analysis.R:` script file to answer the programming assignment problematic
 * `README.md:` explains the analysis files is clear and understandable
 * `CodeBook.md:` update of the available codebooks with the data to indicate all the variables and summaries calculated, along with units, and any other relevant information
+* `tidydataset.txt:` output file that corresponds to the tidy data set processed by this project
 * `tidydataset_means.txt:` output file that corresponds to the 5th step of the programming assignment
 
 ## The R script 'run_analysis.R' does the following tasks
