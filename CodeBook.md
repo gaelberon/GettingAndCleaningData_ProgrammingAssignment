@@ -11,7 +11,7 @@ It indicates all the variables and summaries calculated, along with units, and a
 relevant information
 ```
 
-# About the original data
+# Original Data Set
 
 > Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors.
 > 
@@ -27,14 +27,28 @@ relevant information
 > 
 > The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 > 
-> Check the [README.txt](GettingAndCleaningData_ProgrammingAssignment/blob/master/README.md) file for further details about this dataset. 
+> Check the [README.md](README.md) file for further details about this dataset. 
 > 
 > A video of the experiment including an example of the 6 recorded activities with one of the participants can be seen in the following link: [Web Link]
 > 
 > An updated version of this dataset can be found at [Web Link]. It includes labels of postural transitions between activities and also the full raw inertial signals instead of the ones pre-processed into windows.
 
-## Variables
+# Processing data set to get tidy data
 
+## Input files
+
+* 'activity_labels.txt': Indexes (class labels) and names of the activities measured
+
+Index  | Label
+------ | -------------------
+1      | WALKING
+2      | WALKING_UPSTAIRS
+3      | WALKING_DOWNSTAIRS
+4      | SITTING
+5      | STANDING
+6      | LAYING
+
+* 'features.txt': Variables
 Out of the whole scope of variables (x 561) contained in the file 'features.txt', we will consider only the measurements on the mean and standard deviation for each measurement (x 66)
 
   + `1 tBodyAcc-mean()-X`
@@ -121,14 +135,24 @@ Out of the whole scope of variables (x 561) contained in the file 'features.txt'
   + `543 fBodyBodyGyroJerkMag-std()`
   + `...`
 
-## Indexes (class labels) and names of the activities measured
+* Subjects taking part of the experiment
 
-Index  | Label
------- | -------------------
-1      | WALKING
-2      | WALKING_UPSTAIRS
-3      | WALKING_DOWNSTAIRS
-4      | SITTING
-5      | STANDING
-6      | LAYING
+  + test/subject_test.txt
+  + train/subject_train.txt
+
+* Subjects being part of the experiment
+
+  + test/subject_test.txt
+  + train/subject_train.txt
+
+  File name               | Content
+------------------------- | ------------------------------------------------------------
+test/subject_test.txt     | Both files contain indexes from `1 to 30` corresponding to the
+------------------------- | volunteer being part of the experiment
+train/subject_train.txt   | 
+
+* Subjects taking part of the experiment
+
+  + test/subject_test.txt
+  + train/subject_train.txt
 
