@@ -7,7 +7,7 @@
 ## 5. From the data set in step 4, create a second, independent tidy data set
 ##    with the average of each variable for each activity and each subject
 
-# process_tidydata is the main function that processes all the steps above
+# process_tidydata is the main function that processes all the tasks above
 
 process_tidydata <- function() {
 
@@ -40,7 +40,7 @@ process_tidydata <- function() {
         
         ########################################################################
         # 2. Extract only the measurements on the mean and standard deviation
-        #    for each measurement.
+        #    for each measurement
         
         ## 2.1 Read all available features from file 'features.txt'
         av_features <- read.table("./UCI HAR Dataset/features.txt")
@@ -85,43 +85,28 @@ process_tidydata <- function() {
         ##     - variables: subject, category (TRAINING or TEST), activity names
         ##       and all means and standard deviations
         tidydata <- cbind(subject, activity, mdata)
-        View(tidydata)
+        #View(tidydata)
         
         ########################################################################
         # 5. From the data set in step 4, create a second, independent tidy
         #    data set with the average of each variable for each activity and
         #    each subject
+        
+        ## 5.1 Compute the means on data frame 'tidydata' by subject, category
+        ##     and activity, using the 'ddply' method from package 'plyr'
         means <- ddply(tidydata,
                        .(subject, category, activity),
                        function(x) colMeans(x[, 4:69]))
-        View(means)
+        #View(means)
+        
+        ## 5.2 Upload the tidy data set into the file 'tidydataset.txt'
+        write.table(tidydata, file = "./tidydataset.txt", row.names = FALSE)
+        
+        ## 5.3 Upload the tidy data set with means into the file
+        ##     'tidydataset_means.txt'
+        write.table(means, file = "./tidydataset_means.txt", row.names = FALSE)
         
         ########################################################################
-        # Finally, Return final tidy data frame 'tidydata'
+        # 5.4 Return final tidy data frame 'tidydata'
         return(tidydata)
-}
-
-load_inertial_signals <- function() {
-        # Inertial Signals
-        ## Train set
-        body_acc_x_train <-
-                read.table("./UCI HAR Dataset/train/Inertial Signals/body_acc_x_train.txt")
-        print(dim(body_acc_x_train))
-        print(head(body_acc_x_train))
-#        body_acc_y_train <-
-#                read.table("./UCI HAR Dataset/train/Inertial Signals/body_acc_y_train.txt")
-#        body_acc_z_train <-
-#                read.table("./UCI HAR Dataset/train/Inertial Signals/body_acc_z_train.txt")
-#        body_gyro_x_train <-
-#                read.table("./UCI HAR Dataset/train/Inertial Signals/body_gyro_x_train.txt")
-#        body_gyro_y_train <-
-#                read.table("./UCI HAR Dataset/train/Inertial Signals/body_gyro_y_train.txt")
-#        body_gyro_z_train <-
-#                read.table("./UCI HAR Dataset/train/Inertial Signals/body_gyro_z_train.txt")
-#        total_acc_x_train <-
-#                read.table("./UCI HAR Dataset/train/Inertial Signals/total_acc_x_train.txt")
-#        total_acc_y_train <-
-#                read.table("./UCI HAR Dataset/train/Inertial Signals/total_acc_y_train.txt")
-#        total_acc_z_train <-
-#                read.table("./UCI HAR Dataset/train/Inertial Signals/total_acc_z_train.txt")
 }
